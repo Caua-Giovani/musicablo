@@ -16,5 +16,7 @@ INSERT INTO `musicablo`.`musica`
 `url_capa`,
 `nome_genero`)
 VALUES
-("System of a Down","04:15","B.Y.O.B","https://cdn-images.dzcdn.net/images/cover/4954f43cc6033ddfa0fa3ee5514a26ca/500x500.jpg","Rock"),
-("System of a Down","02:34","Sugar","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWqOlJZxENcQgz8lMLSFPNXykipt0lrCLPPg&s","Rock");
+("System of a Down","00:04:15","B.Y.O.B","https://cdn-images.dzcdn.net/images/cover/4954f43cc6033ddfa0fa3ee5514a26ca/500x500.jpg","Rock"),
+("System of a Down","00:02:34","Sugar","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWqOlJZxENcQgz8lMLSFPNXykipt0lrCLPPg&s","Rock"),
+("System of a Down","00:04:09","Radio/Video","https://cdn-images.dzcdn.net/images/cover/4954f43cc6033ddfa0fa3ee5514a26ca/500x500.jpg","Rock"),
+("System of a Down","00:02:47","Lonely Day","https://upload.wikimedia.org/wikipedia/pt/5/50/220px-System_Of_A_Down-Hypnotize.jpg","Rock");

@@ -16,10 +16,19 @@ def pag_principal():
     )
 
     cursor = conexao.cursor(dictionary=True)
-    cursor.execute("SELECT id_musica,cantor,duracao,nome,url_capa,nome_genero FROM musica;")
+    
+    cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,genero.cor FROM musica
+                   inner join genero on musica.nome_genero = genero.cor ;""")
+
     musicas=cursor.fetchall()
 
-    return render_template("principal.html",musicas=musicas)
+    cursor.execute("SELECT genero,icone,cor FROM genero;")
+    
+    genero=cursor.fetchall()
+
+    conexao.close
+
+    return render_template("principal.html",musicas=musicas,genero=genero)
 
 @app.route("/admin")
 
