@@ -20,7 +20,20 @@ def pag_principal():
 def pag_adm():
     musicas = recuperar_musicas()
     genero = recuperar_generos()
-    return render_template("administracao.html",musicas=musicas,genero=genero)
+
+    return render_template("administracao.html",musicas=musicas,genero=genero,)
+
+
+@app.route("/admin",methods=["POST"])
+def pag_adm_post():
+    musica = request.form.get("musica")
+    cantor = request.form.get("cantor")
+    duracao = request.form.get("duracao")
+    url_capa = request.form.get("url_capa")
+    print(musica,cantor,duracao,url_capa)
+    return redirect("/admin")
+    pass
+
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)

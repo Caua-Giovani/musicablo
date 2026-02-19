@@ -14,3 +14,4 @@ def recuperar_musicas():
     conexao.close
 
     return musicas
+
