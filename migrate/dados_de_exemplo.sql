@@ -16,7 +16,10 @@ INSERT INTO `musicablo`.`musica`
 `url_capa`,
 `nome_genero`)
 VALUES
-("System of a Down","00:04:15","B.Y.O.B","https://cdn-images.dzcdn.net/images/cover/4954f43cc6033ddfa0fa3ee5514a26ca/500x500.jpg","Rock"),
 ("System of a Down","00:02:34","Sugar","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWqOlJZxENcQgz8lMLSFPNXykipt0lrCLPPg&s","Rock"),
 ("System of a Down","00:04:09","Radio/Video","https://cdn-images.dzcdn.net/images/cover/4954f43cc6033ddfa0fa3ee5514a26ca/500x500.jpg","Rock"),
-("System of a Down","00:02:47","Lonely Day","https://upload.wikimedia.org/wikipedia/pt/5/50/220px-System_Of_A_Down-Hypnotize.jpg","Rock");
+("System of a Down","00:02:47","Lonely Day","https://upload.wikimedia.org/wikipedia/pt/5/50/220px-System_Of_A_Down-Hypnotize.jpg","Rock"),
+("System of a Down","00:03:45","Psycho","https://i.scdn.co/image/ab67616d00001e02d702e708c6b48247ba167d04","Rock"),
+("Chico Buarque","00:04:01","Cálice","https://upload.wikimedia.org/wikipedia/pt/5/59/Chico_buarque_1978.jpg","MPB"),
+("Cássia Eller","00:04:11","O Segundo Sol","https://cdn-images.dzcdn.net/images/cover/9222d5c4c7e488199b0134531dc8328c/1900x1900-000000-80-0-0.jpg","Pop");
+
