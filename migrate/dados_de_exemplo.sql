@@ -7,7 +7,8 @@ INSERT INTO `musicablo`.`genero`
 VALUES
 ("Rock","","red"),
 ("Pop","","blue"),
-("MPB","","#FACADA");
+("MPB","","#FACADA"),
+("Indie","","#d058db");
 
 INSERT INTO `musicablo`.`musica`
 (`cantor`,
@@ -21,5 +22,6 @@ VALUES
 ("System of a Down","00:02:47","Lonely Day","https://upload.wikimedia.org/wikipedia/pt/5/50/220px-System_Of_A_Down-Hypnotize.jpg","Rock"),
 ("System of a Down","00:03:45","Psycho","https://i.scdn.co/image/ab67616d00001e02d702e708c6b48247ba167d04","Rock"),
 ("Chico Buarque","00:04:01","Cálice","https://upload.wikimedia.org/wikipedia/pt/5/59/Chico_buarque_1978.jpg","MPB"),
-("Cássia Eller","00:04:11","O Segundo Sol","https://cdn-images.dzcdn.net/images/cover/9222d5c4c7e488199b0134531dc8328c/1900x1900-000000-80-0-0.jpg","Pop");
+("Cássia Eller","00:04:11","O Segundo Sol","https://cdn-images.dzcdn.net/images/cover/9222d5c4c7e488199b0134531dc8328c/1900x1900-000000-80-0-0.jpg","Pop"),
+("Arctic Monkeys","00:04:13","505","https://cdn-images.dzcdn.net/images/cover/d7a4f9f1af8736457de34f28d50ef496/1900x1900-000000-80-0-0.jpg","Indie");
 
