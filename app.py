@@ -4,6 +4,7 @@ import mysql
 import mysql.connector
 from model.musica import recuperar_musicas
 from model.musica import adicionar_musica
+
 from model.genero import recuperar_generos
 
 app = Flask(__name__)
@@ -21,8 +22,9 @@ def pag_principal():
 def pag_adm():
     musicas = recuperar_musicas()
     genero = recuperar_generos()
+    
 
-    return render_template("administracao.html",musicas=musicas,genero=genero,)
+    return render_template("administracao.html",musicas=musicas,genero=genero)
 
 
 @app.route("/admin",methods=["POST"])
@@ -32,9 +34,13 @@ def pag_adm_post():
     duracao = request.form.get("duracao")
     url_capa = request.form.get("url_capa")
     genero= request.form.get("nome_genero")
+
+    
     adicionar_musica(cantor,duracao,musica,url_capa,genero)
     return redirect("/admin")
 
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)
+
+

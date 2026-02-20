@@ -92,7 +92,6 @@
                             <div class="control is-expanded">
                                 <div class="select is-fullwidth">
                                     <select name="nome_genero">
-                                        <option>Selecione...</option>
                                         {% for genero in genero: %}
                                         <option style="color: {{genero.cor}}" href="#"><span class="icon"><i class="fa-solid fa-compact-disc"></i></span> {{genero.genero}}</option>
                                         {% endfor %}
@@ -142,7 +141,7 @@
                         </td>
                         <td class="has-text-right px-5">
                             <div class="buttons is-right">
-                                <button class="button is-small is-warning is-light" title="Desativar">
+                                <button class="button is-small is-warning is-light" title="Desativar" >
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </button>
                                 <button class="button is-small is-danger is-light" title="Excluir">

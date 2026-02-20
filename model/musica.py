@@ -31,3 +31,4 @@ def adicionar_musica(cantor:str,duracao:str,musica:str,url_capa:str,genero:str) 
 
     conexao.commit()
     conexao.close()
+
