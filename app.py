@@ -3,6 +3,7 @@ from flask import Flask, render_template,request,redirect,session
 import mysql
 import mysql.connector
 from model.musica import recuperar_musicas
+from model.musica import adicionar_musica
 from model.genero import recuperar_generos
 
 app = Flask(__name__)
@@ -30,9 +31,9 @@ def pag_adm_post():
     cantor = request.form.get("cantor")
     duracao = request.form.get("duracao")
     url_capa = request.form.get("url_capa")
-    print(musica,cantor,duracao,url_capa)
+    genero= request.form.get("nome_genero")
+    adicionar_musica(cantor,duracao,musica,url_capa,genero)
     return redirect("/admin")
-    pass
 
 
 if __name__=="__main__":

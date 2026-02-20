@@ -8,6 +8,6 @@ def recuperar_generos():
     
     genero=cursor.fetchall()
 
-    conexao.close
+    conexao.close()
 
     return genero
