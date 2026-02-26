@@ -78,8 +78,9 @@
                     <p class="menu-label">Categorias</p>
                     <ul class="menu-list">
                         {% for genero in genero: %}
-                        <li ><a style="color: {{genero.cor}}" href="#"><span class="icon"><i class="fa-solid fa-compact-disc"></i></span> {{genero.genero}}</a></li>
+                        <li ><a style="color: {{genero.cor}}" href="/filtrar/{{genero.genero}}"><span class="icon"><i class="fa-solid fa-compact-disc"></i></span> {{genero.genero}}</a></li>
                         {% endfor %}
+                        <li ><a href="/"><span class="icon"><i class="fa-solid fa-compact-disc"></i></span>Remover Filtros</a></li>
                     </ul>
                 </div>
             </aside>

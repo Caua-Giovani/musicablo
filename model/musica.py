@@ -59,6 +59,21 @@ def alterar_musica(id:int) -> bool:
         cursor.execute("""UPDATE musica
                         SET stats = %s
                         WHERE id_musica = %s;""",("ATIVO",id))
-        
+
     conexao.commit()
     conexao.close()
+
+def recuperar_musicas_filtro(genero):
+
+    conexao, cursor = conectar()
+
+    cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
+                        INNER JOIN genero ON musica.nome_genero = genero.genero
+                        WHERE musica.nome_genero = %s
+                        ORDER BY musica.id_musica ASC;""",(genero,))
+
+    musicas=cursor.fetchall()
+
+    conexao.close()
+
+    return musicas

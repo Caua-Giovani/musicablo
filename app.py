@@ -6,6 +6,7 @@ from model.musica import recuperar_musicas
 from model.musica import adicionar_musica
 from model.musica import deletar_musica
 from model.musica import alterar_musica
+from model.musica import recuperar_musicas_filtro
 
 from model.genero import recuperar_generos
 
@@ -50,6 +51,13 @@ def deletar(id):
 def alterar(id):
     alterar_musica(id)
     return redirect("/admin")
+    
+@app.route("/filtrar/<genero_musica>")
+def filtro(genero_musica):
+    genero = recuperar_generos()
+    musicas = recuperar_musicas_filtro(genero_musica)
+
+    return render_template("principal.html",musicas=musicas,genero=genero)
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)
