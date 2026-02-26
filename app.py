@@ -4,6 +4,8 @@ import mysql
 import mysql.connector
 from model.musica import recuperar_musicas
 from model.musica import adicionar_musica
+from model.musica import deletar_musica
+from model.musica import alterar_musica
 
 from model.genero import recuperar_generos
 
@@ -39,6 +41,15 @@ def pag_adm_post():
     adicionar_musica(cantor,duracao,musica,url_capa,genero)
     return redirect("/admin")
 
+@app.route("/admin/delete/<int:id>")
+def deletar(id):
+    deletar_musica(id)
+    return redirect("/admin")
+    
+@app.route("/admin/alterar/<int:id>")
+def alterar(id):
+    alterar_musica(id)
+    return redirect("/admin")
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)
