@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS musica (
  cantor VARCHAR(50),
  duracao TIME,
  nome VARCHAR(50),
+ stats VARCHAR(10),
  url_capa VARCHAR(255),
  nome_genero VARCHAR(30) NOT NULL,
  constraint fk_musica_genero foreign key (nome_genero) references genero (genero)

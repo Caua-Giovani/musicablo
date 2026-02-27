@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e6e6e6, #f5f5f5);
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Botão customizado */
+        .botao_ {
+            --bulma-primary-h: 166deg;
+            --bulma-primary-s: 30%;
+            --bulma-primary-l: 40%;
+            color: white;
+        }
+
+        /* Container principal */
+        .container.box {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+        }
+
+        /* Conteúdo interno */
+        .container-content {
+            width: 100%;
+        }
+
+        /* Texto principal */
+        .container-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+
+        /* Imagem da navbar */
+        .navbar-item img {
+            max-height: 48px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container.box {
+                margin: 40px 20px;
+                padding: 25px;
+            }
+
+            .container-content p {
+                font-size: 1rem;
+            }
+        }
+
+            /* Centraliza tudo no meio da tela */
+            .login-wrapper {
+                height:100vh ;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #1a1a1a;
+            }
+
+
+        /* Caixa do login */
+        .login-box {
+            width: 100%;
+            max-width: 380px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: #b3b3b3;
+        }
+        .navbar {
+             height: 56px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <form action="/login" method="post" style="text-align: center;">
+        <div class="login-wrapper">
+            <div class="login-box box">
+              <h1 class="title is-4 has-text-centered">Login</h1>
+          
+              <div class="field">
+                <label class="label">Usuário</label>
+                <div class="control">
+                  <input class="input" type="text" name="usuario">
+                </div>
+              </div>
+          
+              <div class="field">
+                <label class="label">Senha</label>
+                <div class="control">
+                  <input class="input" type="password" name="senha">
+                </div>
+              </div>
+          
+              <div class="field">
+                <button class="button is-primary is-fullwidth" type="submit">
+                  Entrar
+                </button>
+                <h1 style="color: red; font-weight: 600; margin: 10px 0 0 0;"></h1>
+              </div>
+            </div>
+          </div>
+    </form>
+</body>
+</html>

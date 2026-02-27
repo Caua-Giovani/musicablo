@@ -2,13 +2,23 @@ from database.conexao import conectar
 
 
 
-def recuperar_musicas():
+def recuperar_musicas(ativo:bool=False,genero:str=None):
     conexao,cursor = conectar()
-
-     
-    cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
-                        inner join genero on musica.nome_genero = genero.genero 
-                        ORDER BY musica.id_musica ASC;""")
+    if genero :
+        cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
+                        INNER JOIN genero ON musica.nome_genero = genero.genero
+                        WHERE musica.nome_genero = %s AND musica.stats = "ATIVO"
+                        ORDER BY musica.id_musica ASC;""",(genero,))
+    else:
+        if ativo == True:
+            cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
+                                inner join genero on musica.nome_genero = genero.genero 
+                                where musica.stats = "ATIVO"
+                                ORDER BY musica.id_musica ASC;""")
+        else:
+            cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
+                            inner join genero on musica.nome_genero = genero.genero 
+                            ORDER BY musica.id_musica ASC;""")
 
     musicas=cursor.fetchall()
 
@@ -16,6 +26,7 @@ def recuperar_musicas():
     conexao.close()
 
     return musicas
+
 
 def adicionar_musica(cantor:str,duracao:str,musica:str,url_capa:str,genero:str) -> bool:
     """
@@ -62,18 +73,3 @@ def alterar_musica(id:int) -> bool:
 
     conexao.commit()
     conexao.close()
-
-def recuperar_musicas_filtro(genero):
-
-    conexao, cursor = conectar()
-
-    cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
-                        INNER JOIN genero ON musica.nome_genero = genero.genero
-                        WHERE musica.nome_genero = %s
-                        ORDER BY musica.id_musica ASC;""",(genero,))
-
-    musicas=cursor.fetchall()
-
-    conexao.close()
-
-    return musicas

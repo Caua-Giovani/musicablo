@@ -6,7 +6,6 @@ from model.musica import recuperar_musicas
 from model.musica import adicionar_musica
 from model.musica import deletar_musica
 from model.musica import alterar_musica
-from model.musica import recuperar_musicas_filtro
 
 from model.genero import recuperar_generos
 
@@ -15,7 +14,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home",methods=["GET"])
 def pag_principal():
-    musicas = recuperar_musicas()
+    musicas = recuperar_musicas(1)
     genero = recuperar_generos()
 
     return render_template("principal.html",musicas=musicas,genero=genero)
@@ -23,7 +22,7 @@ def pag_principal():
 @app.route("/admin")
 
 def pag_adm():
-    musicas = recuperar_musicas()
+    musicas = recuperar_musicas(0)
     genero = recuperar_generos()
     
 
@@ -55,9 +54,14 @@ def alterar(id):
 @app.route("/filtrar/<genero_musica>")
 def filtro(genero_musica):
     genero = recuperar_generos()
-    musicas = recuperar_musicas_filtro(genero_musica)
+    musicas = recuperar_musicas(1,genero_musica)
 
     return render_template("principal.html",musicas=musicas,genero=genero)
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)
