@@ -20,3 +20,8 @@ CREATE TABLE IF NOT EXISTS musica (
  nome_genero VARCHAR(30) NOT NULL,
  constraint fk_musica_genero foreign key (nome_genero) references genero (genero)
 );
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    usuario VARCHAR(50) NOT NULL PRIMARY KEY,
+    senha VARCHAR(100) NOT NULL
+)

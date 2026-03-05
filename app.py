@@ -7,9 +7,14 @@ from model.musica import adicionar_musica
 from model.musica import deletar_musica
 from model.musica import alterar_musica
 
+from model.usuario_model import adicionar_usuario
+from model.usuario_model import autenticar_usuario
+
 from model.genero import recuperar_generos
 
 app = Flask(__name__)
+
+app.secret_key='chave-secreta-demais'
 
 @app.route("/")
 @app.route("/home",methods=["GET"])
@@ -19,14 +24,47 @@ def pag_principal():
 
     return render_template("principal.html",musicas=musicas,genero=genero)
 
-@app.route("/admin")
+@app.route("/login")
+def pag_login():
+    return render_template("login.html")
 
+@app.route("/login/post",methods=["POST"])
+def pag_login_post():
+
+    login= request.form.get("login")
+    senha= request.form.get("senha")
+
+    if autenticar_usuario(login,senha):
+        session['usuario_logado'] = login
+        return redirect("/admin")
+    else:
+        return redirect("/login")
+
+
+@app.route("/cadastro")
+def pag_cadastro():
+    return render_template("cadastro.html")
+
+
+
+@app.route("/cadastro/post",methods=["POST"])
+def pag_cadastro_post():
+    login = request.form.get("login_create")
+    senha = request.form.get("senha_create")
+    adicionar_usuario(login,senha)
+
+    return redirect("/login")
+
+
+
+@app.route("/admin")
 def pag_adm():
     musicas = recuperar_musicas(0)
     genero = recuperar_generos()
-    
-
-    return render_template("administracao.html",musicas=musicas,genero=genero)
+    if 'usuario_logado' in session:
+        return render_template("administracao.html",musicas=musicas,genero=genero)
+    else:
+        return redirect("/login")
 
 
 @app.route("/admin",methods=["POST"])
@@ -58,10 +96,10 @@ def filtro(genero_musica):
 
     return render_template("principal.html",musicas=musicas,genero=genero)
 
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
+@app.route("/logout")
+def clear_session():
+    session.clear()
+    return redirect("/login")
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)

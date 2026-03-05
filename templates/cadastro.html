@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro</title>
     <style>
         /* Reset básico */
         html, body { 
@@ -31,11 +31,7 @@
         
         .title, .label { color: #fff !important; }
         .subtitle { color: #485fc7 !important; }
-
-        .botao_cadastro{
-            font-size: 15px ;
-            margin: auto;
-        }
+        
 
     </style>
 </head>
@@ -46,7 +42,7 @@
             <div class="level-left">
                 <div>
                     <h1 class="title is-3">Gestão de Contas</h1>
-                    <p class="subtitle is-6">Painel de Login</p>
+                    <p class="subtitle is-6">Painel de Cadastro</p>
                 </div>
             </div>
             <div class="level-right">
@@ -58,15 +54,15 @@
 
         <div class="box">
             <h2 class="title is-5 mb-5">
-                <i class="fa-solid fa-circle-plus has-text-success mr-2"></i> Entre na sua conta!
+                <i class="fa-solid fa-circle-plus has-text-success mr-2"></i> Crie sua conta!
             </h2>
-            <form method="post" action="/login/post">
+            <form method="post" action="/cadastro/post">
                 <div class="columns is-multiline">
                     <div class="column is-4">
                         <div class="field">
                             <label class="label is-small">Login</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="Ex: Starboy" name="login">
+                                <input class="input" type="text" placeholder="Ex: Starboy" name="login_create">
                             </div>
                         </div>
                     </div>
@@ -74,14 +70,13 @@
                         <div class="field">
                             <label class="label is-small">Senha</label>
                             <div class="control">
-                                <input class="input" type="password" placeholder="Ex: The Weeknd" name="senha">
+                                <input class="input" type="password" placeholder="Ex: The Weeknd" name="senha_create">
                             </div>
                         </div>
                     </div>
-                <button class="button is-link is-fullwidth mt-4">
-                    <strong><i class="fa-solid fa-save mr-2"></i> Entrar </strong>
+                <button type="submit" class="button is-link is-fullwidth mt-4">
+                    <strong><i class="fa-solid fa-save mr-2"></i> Cadastre-se </strong>
                 </button>
-                <a href="/cadastro" class="botao_cadastro">Não tem uma conta? Crie uma!</a>
             </form>
         </div>
 
