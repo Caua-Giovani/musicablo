@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template,request,redirect,session
+from flask import Flask, render_template,request,redirect,session,flash
 import mysql
 import mysql.connector
 from model.musica import recuperar_musicas
@@ -26,6 +26,8 @@ def pag_principal():
 
 @app.route("/login")
 def pag_login():
+    if 'usuario_logado' in session:
+        return redirect("/admin")
     return render_template("login.html")
 
 @app.route("/login/post",methods=["POST"])
@@ -36,8 +38,10 @@ def pag_login_post():
 
     if autenticar_usuario(login,senha):
         session['usuario_logado'] = login
+        flash(f"Seja em-Vindo, {login}!")
         return redirect("/admin")
     else:
+        flash("Usuário ou senha incorretos!")
         return redirect("/login")
 
 

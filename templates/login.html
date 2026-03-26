@@ -41,6 +41,7 @@
 </head>
 <body>
 
+    
     <div class="container">
         <header class="level mb-6">
             <div class="level-left">
@@ -81,6 +82,11 @@
                 <button class="button is-link is-fullwidth mt-4">
                     <strong><i class="fa-solid fa-save mr-2"></i> Entrar </strong>
                 </button>
+                {% with messages = get_flashed_messages() %}
+                    {% for message in messages %}
+                    <span style="color:red; display: inline; width: 100%; text-align: center;">{{message}}</span>
+                    {% endfor %}
+                {% endwith %}
                 <a href="/cadastro" class="botao_cadastro">Não tem uma conta? Crie uma!</a>
             </form>
         </div>
