@@ -7,13 +7,13 @@ def recuperar_musicas(ativo:bool=False,genero:str=None):
     if genero :
         cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
                         INNER JOIN genero ON musica.nome_genero = genero.genero
-                        WHERE musica.nome_genero = %s AND musica.stats = "ATIVO"
+                        WHERE musica.nome_genero = %s AND musica.stats = 'ATIVO'
                         ORDER BY musica.id_musica ASC;""",(genero,))
     else:
         if ativo == True:
             cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
                                 inner join genero on musica.nome_genero = genero.genero 
-                                where musica.stats = "ATIVO"
+                                where musica.stats = 'ATIVO'
                                 ORDER BY musica.id_musica ASC;""")
         else:
             cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
